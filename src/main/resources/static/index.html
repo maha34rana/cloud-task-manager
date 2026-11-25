@@ -4,52 +4,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Task Manager</title>
+    <title>CloudTask | Workspace</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+<div class="app-layout">
 
-    <header>
-        <h1>My Cloud Task Manager - CI/CD Demo</h1>
-        <p>Organize your work and stay productive.</p>
-    </header>
-
-    <section class="stats">
-        <div class="stat-card">
-            <h3>Total Tasks</h3>
-            <p id="totalTasks">0</p>
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">C</div>
+            <span>CloudTask</span>
         </div>
 
-        <div class="stat-card">
-            <h3>Completed</h3>
-            <p id="completedTasks">0</p>
+        <p class="menu-label">WORKSPACE</p>
+        <a class="nav-item active" href="#">▦ &nbsp; Overview</a>
+        <a class="nav-item" href="#tasks">☷ &nbsp; My Tasks</a>
+
+        <div class="sidebar-bottom">
+            <div class="profile">
+                <div class="avatar">U</div>
+                <div>
+                    <strong>Workspace User</strong>
+                    <small>Personal Account</small>
+                </div>
+            </div>
         </div>
+    </aside>
 
-        <div class="stat-card">
-            <h3>Pending</h3>
-            <p id="pendingTasks">0</p>
-        </div>
-    </section>
+    <main class="main-content">
 
-    <section class="task-form">
-        <h2>Add New Task</h2>
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">WORKSPACE / OVERVIEW</p>
+                <h1>Good day, User 👋</h1>
+                <p class="subtitle">Manage your work and stay productive.</p>
+            </div>
+            <div class="top-status">
+                <span class="status-dot"></span>
+                System Online
+            </div>
+        </header>
 
-        <input type="text" id="title"
-               placeholder="Enter task title">
+        <section class="stats-grid">
+            <div class="stat-card">
+                <span>Total Tasks</span>
+                <h2 id="totalCount">0</h2>
+                <small>All your tasks</small>
+            </div>
 
-        <textarea id="description"
-                  placeholder="Enter task description"></textarea>
+            <div class="stat-card">
+                <span>Completed</span>
+                <h2 id="completedCount">0</h2>
+                <small>Successfully finished</small>
+            </div>
 
-        <button onclick="addTask()">Add Task</button>
-    </section>
+            <div class="stat-card">
+                <span>Pending</span>
+                <h2 id="pendingCount">0</h2>
+                <small>Waiting for action</small>
+            </div>
+        </section>
 
-    <section class="task-section">
-        <h2>My Tasks</h2>
-        <div id="taskList"></div>
-    </section>
+        <section class="content-grid">
 
+            <div class="panel task-panel" id="tasks">
+                <div class="panel-heading">
+                    <div>
+                        <h2>My Tasks</h2>
+                        <p>Your current activities</p>
+                    </div>
+                    <span class="live-badge">LIVE DATA</span>
+                </div>
+
+                <div id="taskList" class="task-list">
+                    <p class="empty-state">Loading tasks...</p>
+                </div>
+            </div>
+
+            <div class="panel form-panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Create Task</h2>
+                        <p>Add something to your workspace</p>
+                    </div>
+                </div>
+
+                <form id="taskForm">
+                    <label for="title">Task title</label>
+                    <input
+                            type="text"
+                            id="title"
+                            placeholder="e.g. Complete project report"
+                            required
+                    >
+
+                    <label for="description">Description</label>
+                    <textarea
+                            id="description"
+                            placeholder="Describe your task..."
+                            rows="5"
+                    ></textarea>
+
+                    <button type="submit" class="primary-btn">
+                        + Create Task
+                    </button>
+                </form>
+
+                <div id="message" class="message"></div>
+            </div>
+
+        </section>
+
+        <footer>
+            CloudTask © 2026 · Built with Java & Spring Boot
+        </footer>
+
+    </main>
 </div>
 
 <script src="script.js"></script>
